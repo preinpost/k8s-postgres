@@ -6,10 +6,14 @@ metadata:
     type: local
     app: postgres
 spec:
-  storageClassName: manual
   capacity:
-    storage: 5Gi
+    storage: 10Gi
+  volumeMode: Filesystem
+  storageClassName: ""
+  mountOptions:
+    - nfsvers=4.1
   accessModes:
     - ReadWriteMany
-  hostPath:
-    path: "/mnt/data"
+  nfs:
+    server: 192.168.0.6
+    path: "/volume2/k8s-vol"

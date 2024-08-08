@@ -4,7 +4,7 @@ metadata:
   name: postgres
 spec:
   serviceName: postgres
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: postgres
@@ -13,6 +13,9 @@ spec:
       labels:
         app: postgres
     spec:
+      securityContext:
+        runAsUser: 1024
+        runAsGroup: 100
       containers:
         - name: postgres
           image: postgres:latest

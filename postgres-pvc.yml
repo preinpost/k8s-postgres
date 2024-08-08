@@ -5,9 +5,10 @@ metadata:
   labels:
     app: postgres
 spec:
-  storageClassName: manual
+  volumeMode: Filesystem
+  storageClassName: ""
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 5Gi
+      storage: 10Gi
